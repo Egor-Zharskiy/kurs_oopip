@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <main>
+        <div class="sideBar">
+            <!-- Ваш боковой бар с элементами -->
+        </div>
+
+        <div class="form-container">
+            <form action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
+
+                <h2>Вход</h2>
+
+                <div class="form-field">
+                    <label for="username">Имя пользователя</label>
+                    <input type="text" name="username" id="username" placeholder="Имя пользователя">
+                </div>
+
+                <div class="form-field">
+                    <label for="password">Пароль</label>
+                    <input type="password" name="password" id="password" placeholder="Пароль">
+                </div>
+
+                <div class="form-field">
+                    <input type="submit" value="Войти">
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock %}
+

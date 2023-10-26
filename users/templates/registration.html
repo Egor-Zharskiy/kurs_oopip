@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <main>
+{#        <div class="sideBar">#}
+{#            <div class="sideBar_section">#}
+{#                <div class="sideBar_item"><a href="#">Моя страница</a></div>#}
+{#                <div class="sideBar_item"><a href="#">Друзья</a></div>#}
+{#                <div class="sideBar_item"><a href="#">Ответы</a></div>#}
+{#                <div class="sideBar_item"><a href="#">Группы</a></div>#}
+{#                <div class="sideBar_item"><a href="#">Фото</a></div>#}
+{#                <div class="sideBar_item"><a href="#">Музыка</a></div>#}
+{#                <div class="sideBar_item"><a href="#">Игры</a></div>#}
+{##}
+{#            </div>#}
+{#            <div class="sideBar_section">#}
+{#                <div class="sideBar_item"><a href="#">Дни рождения</a></div>#}
+{#                <div class="sideBar_item"><a href="#">Уведомления</a></div>#}
+{#            </div>#}
+{#        </div>#}
+
+        <div class="form-container">
+            <form action="{% url 'users:registration' %}" method="post">
+                {% csrf_token %}
+                <h2>Регистрация</h2>
+
+
+                <div class="form-field input-right">
+                    <label for="name">Имя пользователя</label>
+                    {{ form.username }}
+
+                </div>
+
+                <div class="form-field input-right">
+                    <label for="name">Имя</label>
+                    {{ form.first_name }}
+                    {#                    <input type="text" name="first_name" id="name" placeholder="Ваше имя">#}
+
+                    {#                    <input type="text" placeholder="Фамилия">#}
+                </div>
+
+                <div class="form-field input-right">
+                    <label for="name">Фамилия</label>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="form-field input-right">
+                    <label for="email">Почта</label>
+                    {{ form.email }}
+                    {#                    <input type="email" name="email" id="email" placeholder="youremail@gmail.com">#}
+                </div>
+
+                <div class="form-field input-right">
+                    <label for="phone">Номер телефона</label>
+                    {{ form.phone_number }}
+                    {#                    <input type="text" name="phone" id="phone" placeholder="+************">#}
+                </div>
+
+                <div class="form-field input-right">
+                    <label for="pass">Пароль</label>
+                    {{ form.password1 }}
+                    {#                    <input type="password" name="pass" id="pass" placeholder="Введите пароль">#}
+                </div>
+
+                <div class="form-field input-right">
+                    <label for="pass">Подтверждение пароля</label>
+                    {{ form.password2 }}
+                    {#                    <input type="password" name="pass" id="pass" placeholder="Подтвердите пароль">#}
+                </div>
+                {#                {{ form.as_p }}#}
+                <div class="form-field input-right">
+                    <input type="submit" value="Регистрация">
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+{% endblock %}
+</body>
+
+</html>
+

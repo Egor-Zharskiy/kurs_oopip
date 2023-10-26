@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta http-equiv="Content-Type">
+</head>
+
+<body>
+
+{% block main %}
+    <div class="main">
+        <div class="user-profile">
+            <h1>User Profile</h1>
+            <div class="user-info">
+                <h2>Имя пользователя: {{ form.username }}</h2>
+                <h2>Имя: {{ form.first_name }}</h2>
+                <h2>Почта: {{ form.email }}</h2>
+                <h2>Телефон: {{ form.phone_number }}</h2>
+            </div>
+            <div class="user-advertisements">
+                <h2>Ваши объявления:</h2>
+                <div class="advertisement">
+                    <h3>Объявление 1</h3>
+                    <p>Описание объявления 1...</p>
+                </div>
+                <div class="advertisement">
+                    <h3>Объявление 2</h3>
+                    <p>Описание объявления 2...</p>
+                </div>
+                <!-- Add more advertisements as needed -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+</body>
+</html>

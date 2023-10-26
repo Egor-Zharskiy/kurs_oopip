@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="car-details-container">
+       <div class="car-image">
+    {% for image in images %}
+        <img src="{{ image.images.url }}" alt="Car" class="zoomable">
+    {% endfor %}
+</div>
+
+<!-- JavaScript код для увеличения изображений -->
+<script>
+    const images = document.querySelectorAll(".zoomable");
+    const zoomOverlay = document.createElement("div");
+    zoomOverlay.id = "zoom-overlay";
+    zoomOverlay.style.display = "none";
+    document.body.appendChild(zoomOverlay);
+    const zoomedImage = document.createElement("img");
+    zoomedImage.id = "zoomed-image";
+    zoomedImage.alt = "Увеличенное изображение";
+    zoomOverlay.appendChild(zoomedImage);
+
+    images.forEach(image => {
+        image.addEventListener("click", () => {
+            const src = image.getAttribute("src");
+            zoomedImage.setAttribute("src", src);
+            zoomOverlay.style.display = "block";
+        });
+    });
+
+    zoomOverlay.addEventListener("click", () => {
+        zoomOverlay.style.display = "none";
+    });
+</script>
+        <div class="car-details">
+            <div class="car-info">
+                <h2>{{ car.brand }} {{ car.model }}</h2>
+                <p class="car-price">Цена: ${{ car.price }}</p>
+                <h3>Описание: </h3>
+                <p class="car-description">
+                    {{ car.description }}
+                </p>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="seller-info">
+                    <h3>Контактная информация продавца:</h3>
+                    <p>Продавец: {{ car.username.first_name }} {{ car.username.last_name }}</p>
+                    <p>Email: {{ car.username.email }}</p>
+                    <p>Телефон: {{ car.username.phone_number }}</p>
+                </div>
+
+
+
+            {% else %}
+                <h3><a style='color: blue' href="{% url 'users:login' %} ">Авторизуйтесь, чтобы увидеть контактные
+                    данные продавца</a></h3>
+
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -175,6 +175,7 @@ body {
 }
 
 .card {
+    width: 35%;
     position: relative;
     margin-bottom: 20px;
     padding-bottom: 30px;
@@ -378,4 +379,177 @@ input[type="submit"]:hover {
 
 .start-button a:hover {
     background-color: #FF9900;
+}
+
+
+/*profile*/
+
+/* Add these CSS styles to your existing styles.css or create a new CSS file */
+
+/* User Profile Page Styles */
+.user-profile {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.user-info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.user-advertisements {
+    margin-top: 20px;
+}
+
+.advertisement {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.advertisement h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.advertisement p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Improve button styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #689CD2;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #FF9900;
+}
+
+
+/*post details*/
+/* Стили для страницы представления машины */
+.car-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.car-details {
+    /*display: flex;*/
+    /*text-align: center;*/
+    max-width: 65%;
+    background: #fff;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.2);
+    border-radius: 0.25em;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.car-info {
+    flex-grow: 1;
+    padding: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+.car-price {
+    font-size: 1.2em;
+    color: #689CD2;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+.car-description {
+    font-size: 1em;
+    max-width: 80%;
+    overflow-wrap: break-word;
+    overflow-y: auto; /* Добавьте это свойство, чтобы появилась вертикальная прокрутка */
+    max-height: 200px; /* Задайте максимальную высоту, чтобы управлять размером области с описанием */
+}
+
+.seller-info {
+    text-align: center;
+    margin-left: 40%;
+    font-size: 1em;
+    max-width: 20%;
+}
+
+.seller-info p {
+    margin: 0.5em 0;
+}
+
+.car-image {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*max-width: 40%;*/
+    /*overflow: hidden;*/
+    /*display: flex;*/
+    flex-wrap: wrap; /* Позволяет изображениям переходить на следующую строку */
+    max-width: 50%; /* Устанавливает максимальную ширину контейнера */
+    text-align: center;
+}
+
+.car-image img {
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+    /*height: auto;*/
+    width: 150px; /* Установите желаемую ширину для каждого изображения */
+    height: 112px;
+    margin-right: 10px; /* Отступ между изображениями */
+
+}
+
+
+/* Стили для увеличенных изображений */
+#zoom-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    text-align: center; /* Центрирование элементов внутри overlay */
+}
+
+#zoomed-image {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer; /* Добавляет курсор для закрытия увеличенного изображения */
+}
+
+#zoomed-image:hover {
+    filter: brightness(0.9); /* Легкое затемнение изображения при наведении */
 }
