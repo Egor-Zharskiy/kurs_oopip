@@ -7,6 +7,7 @@ from django.contrib.auth.forms import (AuthenticationForm, UserChangeForm,
 from django.utils.timezone import now
 
 from users.models import User
+from advertisements.models import Car
 
 
 class UserLoginForm(AuthenticationForm):
@@ -70,3 +71,9 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'image', 'username', 'email', 'phone_number')
+
+
+class PostCreationForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ('brand', 'model', 'release_year', 'mileage', 'color', 'price')

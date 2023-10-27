@@ -1,9 +1,11 @@
-from django.shortcuts import render, HttpResponseRedirect
-from django.shortcuts import render
+from datetime import datetime
+
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import auth
 
-from users.forms import UserRegistrationForm, UserLoginForm, UserProfileForm
+from advertisements.models import Car
+from users.forms import UserRegistrationForm, UserLoginForm, UserProfileForm, PostCreationForm
 from users.models import User
 
 
@@ -49,8 +51,38 @@ def registration(request):
 
 def profile(request):
     form = UserProfileForm(instance=request.user)
+    print(request.user)
+    advertisements = Car.objects.filter(username=request.user)
+    print(advertisements)
+
     context = {
         'form': form,
+        'advertisements': advertisements
     }
 
     return render(request, 'profile.html', context=context)
+
+
+def create_post(request):
+    if request.method == "POST":
+        print(request.POST)
+        form = PostCreationForm(request.POST)
+
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.username = request.user
+            post.created_timestamp = datetime.now()
+            print(post.price)
+            # print(post.username)
+            post.save()
+            return redirect(reverse('advertisements:cars'))
+
+        else:
+            print(form.errors)
+
+    form = []
+    context = {
+        'form': form
+    }
+
+    return render(request, 'create_post.html', context)

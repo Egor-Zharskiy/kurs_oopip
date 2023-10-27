@@ -510,6 +510,7 @@ h3 {
     /*max-width: 40%;*/
     /*overflow: hidden;*/
     /*display: flex;*/
+    margin-top: 100px;
     flex-wrap: wrap; /* Позволяет изображениям переходить на следующую строку */
     max-width: 50%; /* Устанавливает максимальную ширину контейнера */
     text-align: center;
@@ -552,4 +553,68 @@ h3 {
 
 #zoomed-image:hover {
     filter: brightness(0.9); /* Легкое затемнение изображения при наведении */
+}
+
+
+/*стили  для создания нового объявления*/
+.create-advertisement {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.create-advertisement h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.advertisement-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.advertisement-field label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.advertisement-field input,
+.advertisement-field textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.advertisement-field input[type="number"] {
+    width: 100%;
+}
+
+.advertisement-field textarea {
+    min-height: 150px;
+}
+
+.advertisement-field input[type="file"] {
+    padding: 0;
+}
+
+.advertisement-field input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #689CD2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.advertisement-field input[type="submit"]:hover {
+    background-color: #FF9900;
 }
