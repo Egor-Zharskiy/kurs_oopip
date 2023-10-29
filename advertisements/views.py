@@ -30,7 +30,7 @@ def cars(request):
     for car in cars:
         image = Image.objects.filter(car=car).first()
         data.append([car, image])
-        print(image)
+        # print(image)
 
     context = {
         'cars': cars,

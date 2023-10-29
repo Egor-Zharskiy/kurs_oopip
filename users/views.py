@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import auth
 
-from advertisements.models import Car
-from users.forms import UserRegistrationForm, UserLoginForm, UserProfileForm, PostCreationForm
+from advertisements.models import Car, Image
+from users.forms import UserRegistrationForm, UserLoginForm, UserProfileForm, PostCreationForm, ImageCreationForm
 from users.models import User
 
 
@@ -51,9 +51,7 @@ def registration(request):
 
 def profile(request):
     form = UserProfileForm(instance=request.user)
-    print(request.user)
     advertisements = Car.objects.filter(username=request.user)
-    print(advertisements)
 
     context = {
         'form': form,
@@ -72,13 +70,21 @@ def create_post(request):
             post = form.save(commit=False)
             post.username = request.user
             post.created_timestamp = datetime.now()
-            print(post.price)
-            # print(post.username)
             post.save()
-            return redirect(reverse('advertisements:cars'))
 
         else:
             print(form.errors)
+
+        for f in request.FILES.getlist('photos'):
+            last_post = Car.objects.filter(username=request.user).last()
+            data = f.read()
+            image = Image.objects.create(car=last_post, images=f)
+            return redirect(reverse('advertisements:cars'))
+            # if image.is_valid():
+            #     image.save()
+            #     print(image.errors)
+
+        # imageform = ImageCreationForm()
 
     form = []
     context = {
