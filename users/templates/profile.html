@@ -30,8 +30,18 @@
                 <h2>Ваши объявления:</h2>
                 {% for adv in advertisements %}
                     <div class="advertisement">
-                        <h3>{{ adv.brand }} {{ adv.model }}</h3>
-                        <p>{{ adv.price }}</p>
+                        <a href="{% url 'advertisements:article' adv.id %}">
+                            <h3>{{ adv.brand }} {{ adv.model }}</h3>
+                        </a>
+                        <p>{{ adv.price }} $</p>
+
+                        {% if user.id == user_id %}
+                            <div class="change-button">
+                                <a href="{% url 'users:create_post' %}">Изменить</a>
+                            </div>
+                        {% else %}
+                        {% endif %}
+
                     </div>
                 {% endfor %}
             </div>

@@ -45,7 +45,7 @@ a {
     flex-direction: column;
     justify-content: space-between;
     /*height: ;*/
-    width: 150px;
+    width: 200px;
     border-right: 1px solid #D7DBDD;
     background: #FCFDFD;
     padding: 10px;
@@ -176,6 +176,7 @@ body {
 
 .card {
     width: 35%;
+    min-width: 300px;
     position: relative;
     margin-bottom: 20px;
     padding-bottom: 30px;
@@ -640,5 +641,92 @@ h3 {
 }
 
 .profile_create_adv_button:hover {
+    background-color: #25507e;
+}
+
+/*кнопка изменения объявления*/
+
+.advertisement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.change-button {
+    background-color: #689CD2;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add margin to create space between elements */
+.advertisement h3, .advertisement p {
+    text-align: center;
+    margin: 0;
+}
+
+
+/*sidebar*/
+.filter-input {
+    display: block; /* Установите display в block */
+        width: 100px; /* Установите желаемую ширину */
+    margin-bottom: 10px; /* Добавьте отступ между элементами */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-button {
+    color: blue;
+    font-size: 18px;
+    display: block; /* Установите display в block */
+    width: 60px; /* Установите желаемую ширину */
+    margin-bottom: 10px; /* Добавьте отступ между элементами */
+}
+
+
+/* Стили для формы в sidebar */
+.sidebar-form {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.sidebar-form label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.sidebar-form input[type="text"],
+.sidebar-form input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.sidebar-form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #689CD2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-form input[type="submit"]:hover {
     background-color: #25507e;
 }

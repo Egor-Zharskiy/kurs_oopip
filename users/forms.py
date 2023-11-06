@@ -76,7 +76,7 @@ class UserProfileForm(UserChangeForm):
 class PostCreationForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ('brand', 'model', 'release_year', 'mileage', 'color', 'price')
+        fields = ('brand', 'model', 'release_year', 'mileage', 'color', 'price', 'description')
 
 
 class ImageCreationForm(forms.ModelForm):

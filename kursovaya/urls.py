@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path, include
-from advertisements.views import start
+# from advertisements.views import start
 
 urlpatterns = [
     path('', include('advertisements.urls', namespace='advertisements')),

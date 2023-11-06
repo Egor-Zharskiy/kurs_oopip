@@ -3,20 +3,37 @@
 {% block main %}
     <main>
         <div class="sideBar">
-            {#            <div class="sideBar_section">#}
-            {#                <div class="sideBar_item"><a href="#">Моя страница</a></div>#}
-            {#                <div class="sideBar_item"><a href="#">Друзья</a></div>#}
-            {#                <div class="sideBar_item"><a href="#">Ответы</a></div>#}
-            {#                <div class="sideBar_item"><a href="#">Группы</a></div>#}
-            {#                <div class="sideBar_item"><a href="#">Фото</a></div>#}
-            {#                <div class="sideBar_item"><a href="#">Музыка</a></div>#}
-            {#                <div class="sideBar_item"><a href="#">Игры</a></div>#}
-            {##}
-            {#            </div>#}
-            {#            <div class="sideBar_section">#}
-            {#                <div class="sideBar_item"><a href="#">Дни рождения</a></div>#}
-            {#                <div class="sideBar_item"><a href="#">Уведомления</a></div>#}
-        </div>
+
+
+            <div class="sideBar_section">
+                <form method="post" class="sidebar-form">
+                    {% csrf_token %}
+
+                    <div class="sideBar_item">
+                        <input type="number" class="filter-input" placeholder="Цена от, $"
+                               name="min_price">
+                    </div>
+
+                    <div class="sideBar_item">
+                        <input type="number" class="filter-input" placeholder="Цена до, $"
+                               name="max_price">
+                    </div>
+
+
+                    <div class="sideBar_item">
+                        <button id="filterButton" class="filter-button" type="submit">Показать</button>
+                    </div>
+
+                </form>
+
+                <div class="sideBar_item">
+                    <button id="filterButton" type="submit" class="filter-button">Фильтр</button>
+                </div>
+
+            </div>
+            <div class="sideBar_section">
+
+            </div>
         </div>
 
         <div class="container">
@@ -39,64 +56,6 @@
                         </span>
                     </a>
                 {% endfor %}
-                <a href="#" class="card">
-                        <span class="card-header"
-                              style="background-image: url(https://riadvance.s3mts.ru/images/items/db9/bf265a4f1/b79425895c81.jpg)">
-                            <span class="card-title">
-                                <h3>Post Title</h3>
-                            </span>
-                        </span>
-                    <span class="card-summary">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem optio reiciendis esse, eveniet dicta incidunt.
-
-                        </span>
-                    <span class="card-meta">
-                            Publish: June 26th, 2017
-                        </span>
-                </a>
-
-                <a href="#" class="card">
-                        <span class="card-header"
-                              style="background-image: url(https://storage.yandexcloud.net/cdn.bips.ru/uploads/toyota/corolla/15419/U0tg1sfY.jpg)">
-                            <span class="card-title">
-                                <h3>Post Title</h3>
-                            </span>
-                        </span>
-                    <span class="card-summary">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem optio reiciendis esse, eveniet dicta incidunt.
-                        </span>
-                    <span class="card-meta">
-                            Publish: June 26th, 2017
-                        </span>
-                </a>
-                <a href="#" class="card">
-                        <span class="card-header"
-                              style="background-image: url(https://riadvance.s3mts.ru/images/items/db9/bf265a4f1/b79425895c81.jpg)">
-                            <span class="card-title">
-                                <h3>Post Title</h3>
-                            </span>
-                        </span>
-                    <span class="card-summary">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem optio reiciendis esse, eveniet dicta incidunt.
-                        </span>
-                    <span class="card-meta">
-                            Publish: June 26th, 2017
-                        </span>
-                </a>
-                <a href="#" class="card">
-                        <span class="card-header"
-                              style="background-image: url(https://avatars.mds.yandex.net/get-autoru-vos/2175019/722ba622e3dc9a8460ba5c866e4cd255/1200x900)">
-                            <span class="card-title">
-                                <h3>Post Title</h3>
-                            </span>
-                        </span>
-                    <span class="card-summary">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem optio reiciendis esse, eveniet dicta incidunt.
-                        </span>
-                    <span class="card-meta">
-                            Publish: June 26th, 2017
-                        </span>
-                </a>
 
 
             </div>

@@ -3,5 +3,8 @@ class TitleMixin:
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.title
+        if self.title is not None:
+            context['title'] = self.title
+        else:
+            context['title'] = "CarSell"
         return context

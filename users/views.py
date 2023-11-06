@@ -49,10 +49,13 @@ def registration(request):
     return render(request, "registration.html", context)
 
 
-def profile(request):
-    form = UserProfileForm(instance=request.user)
-    advertisements = Car.objects.filter(username=request.user)
-
+def profile(request, pk):
+    if not pk:
+        form = UserProfileForm(instance=request.user)
+        advertisements = Car.objects.filter(username=request.user)
+    else:
+        form = UserProfileForm(instance=User.objects.get(pk=pk))
+        advertisements = Car.objects.filter(username=User.objects.get(pk=pk))
     context = {
         'form': form,
         'advertisements': advertisements
@@ -79,10 +82,10 @@ def create_post(request):
             last_post = Car.objects.filter(username=request.user).last()
             data = f.read()
             image = Image.objects.create(car=last_post, images=f)
-            return redirect(reverse('advertisements:cars'))
-            # if image.is_valid():
-            #     image.save()
-            #     print(image.errors)
+        return redirect(reverse('advertisements:cars'))
+        # if image.is_valid():
+        #     image.save()
+        #     print(image.errors)
 
         # imageform = ImageCreationForm()
 
