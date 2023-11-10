@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <title>Create Advertisement</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,18 +15,76 @@
     <div class="main">
         <div class="create-advertisement">
 
-            <h1>Create Advertisement</h1>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="advertisement-field">
-                    <label for="brand">Марка машины: </label>
-                    <input type="text" id="brand" name="brand" required>
-                </div>
+            <h1>Создание объявления</h1>
+            {#            <form method="post" enctype="multipart/form-data">#}
+            {#                {% csrf_token %}#}
+            {#                <div class="advertisement-field">#}
+            {#                    <label for="brand">Марка машины: </label>#}
+            {#                    <input type="text" id="brand" name="brand" required>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="advertisement-field">#}
+            {#                    <label for="model">Модель:</label>#}
+            {#                    <input type="text" id="model" name="model" required>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="advertisement-field">#}
+            {#                    <label for="release_year">Год выпуска:</label>#}
+            {#                    <input type="number" id="release_year" name="release_year" required>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="advertisement-field">#}
+            {#                    <label for="color">Color:</label>#}
+            {#                    <input type="text" id="color" name="color" required>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="advertisement-field">#}
+            {#                    <label for="mileage">Пробег (в км):</label>#}
+            {#                    <input type="number" id="mileage" name="mileage" required>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="advertisement-field">#}
+            {#                    <label for="description">Описание:</label>#}
+            {#                    <textarea id="description" name="description" required></textarea>#}
+            {#                </div>#}
+            {##}
+            {#                  <div class="advertisement-field">#}
+            {#                    <label for="price">Цена (в долларах):</label>#}
+            {#                    <input type="number" id="price" name="price" required>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="advertisement-field">#}
+            {#                    <label for="photos">Фото, которые будут отображены в объявлении (Первое фото будет главным):</label>#}
+            {#                    <input type="file" id="photos" name="photos" multiple required>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="advertisement-field">#}
+            {#                    <input type="submit" value="Create">#}
+            {#                </div>#}
+            {#            </form>#}
 
-                <div class="advertisement-field">
-                    <label for="model">Модель:</label>
-                    <input type="text" id="model" name="model" required>
-                </div>
+            <form class="create-post" method="post" enctype="multipart/form-data" action="{% url 'users:create_post' %}">
+                {% csrf_token %}
+                <label for="brand">Бренд:</label>
+                <select style="color:black" id="brand" name="brand">
+                    <option value="">Выберите бренд</option>
+
+                    <!-- Опции для выбора бренда -->
+                </select>
+                <br>
+                <label for="model">Модель:</label>
+                <select id="model" name="model">
+                    <option value="">Выберите модель</option>
+
+                    <!-- Опции для выбора модели -->
+                </select>
+
+                <label for="generations">Поколение:</label>
+                <select id="generations" name="generations">
+                    <option value="">Выберите поколение</option>
+
+                    <!-- Опции для выбора модели -->
+                </select>
 
                 <div class="advertisement-field">
                     <label for="release_year">Год выпуска:</label>
@@ -46,7 +106,7 @@
                     <textarea id="description" name="description" required></textarea>
                 </div>
 
-                  <div class="advertisement-field">
+                <div class="advertisement-field">
                     <label for="price">Цена (в долларах):</label>
                     <input type="number" id="price" name="price" required>
                 </div>
@@ -57,9 +117,97 @@
                 </div>
 
                 <div class="advertisement-field">
-                    <input type="submit" value="Create">
+                    <input type="submit" value="Создать">
                 </div>
+
+                <br>
+                <button style="color:black; font-size: 18px;" type="submit">Создать объявление</button>
             </form>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Подключаем jQuery -->
+
+            <script>
+                $(document).ready(function () {
+                    // Выполняем AJAX-запрос для получения списка брендов
+                    $.ajax({
+                        url: '{% url "users:get_car_brands" %}',  // URL-маршрут для получения брендов
+                        dataType: 'json',
+                        success: function (data) {
+                            var brandSelect = $('#brand');
+                            brandSelect.empty();
+                            {#console.log(data.brands)#}
+                            brandSelect.append($('<option>', {
+                                text: 'Выберите бренд'
+                            }));
+                            for (var i = 0; i < data.brands.length; i++) {
+                                brandSelect.append($('<option>', {
+                                    value: data.brands[i].id,
+                                    text: data.brands[i].name
+                                }));
+                            }
+                        }
+                    });
+
+                    // Слушаем изменение выбора бренда и выполняем соответствующий AJAX-запрос для моделей
+                    $('#brand').on('change', function () {
+                        var selectedBrand = $(this).val();
+                        {#console.log(selectedBrand)#}
+
+                        var url = '{% url "users:get_models" %}';  // Замените 0 на выбранное значение
+                        $.ajax({
+                            url: url,  // URL-маршрут для получения моделей
+                            data: {
+                                'brand_id': selectedBrand
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                var modelSelect = $('#model');
+                                modelSelect.empty();
+                                modelSelect.append($('<option>', {
+                                    text: 'Выберите бренд'
+                                }));
+                                for (var i = 0; i < data.models.length; i++) {
+                                    modelSelect.append($('<option>', {
+                                        value: data.models[i].id,
+                                        text: data.models[i].name
+                                    }));
+                                }
+                            }
+                        });
+                    });
+                    $('#model').on('change', function () {
+                        var selectedModel = $(this).val(); // Получаем значение выбранной модели
+                        console.log(selectedModel);
+
+                        var url = '{% url "users:get_generations" %}'; // Замените на URL-маршрут для получения поколений
+                        $.ajax({
+                            url: url,
+                            data: {
+                                'model_id': selectedModel // Добавляем выбранную модель в параметры запроса
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                var generations = $('#generations');
+                                console.log(data, 'data');
+                                generations.empty();
+                                generations.append($('<option>', {
+                                    text: 'Выберите поколение'
+                                }));
+                                for (var i = 0; i < data.generations.length; i++) {
+                                    console.log(data.generations[i], 'iii')
+                                    generations.append($('<option>', {
+                                        value: data.generations[i].id,
+                                        text: data.generations[i].name
+                                    }));
+                                }
+
+                            }
+                        });
+                    });
+                });
+            </script>
+
+
         </div>
     </div>
 {% endblock %}

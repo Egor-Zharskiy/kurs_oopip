@@ -82,4 +82,18 @@ class PostCreationForm(forms.ModelForm):
 class ImageCreationForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ('car', 'images')
+        fields = ('images',)
+
+
+class CarForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ['brand', 'model', 'mileage', 'color', 'price', 'description']
+
+    def __init__(self, *args, **kwargs):
+        super(CarForm, self).__init__(*args, **kwargs)
+        # Добавьте атрибут "id" для бренда и модели, чтобы использовать их в JavaScript
+        self.fields['brand'].widget.attrs['id'] = 'id_brand'
+        self.fields['model'].widget.attrs['id'] = 'id_model'
+
+# class CreateCarForm(forms.ModelForm):

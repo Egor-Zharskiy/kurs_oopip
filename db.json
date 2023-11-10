@@ -1,0 +1,1239 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-10-23T11:42:08.461Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "1",
+      "object_repr": "AUDI",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-10-23T11:42:41.424Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "AUDI",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2023-10-23T11:51:02.073Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "1",
+      "object_repr": "AUDI",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2023-10-24T20:03:59.933Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "2",
+      "object_repr": "AUDI",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2023-10-24T20:04:07.672Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "2",
+      "object_repr": "BMW",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Brand\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2023-10-24T20:11:47.982Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "3",
+      "object_repr": "MERC",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2023-10-24T20:33:16.950Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "AUDI",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2023-10-24T21:06:24.268Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "AUDI a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2023-10-24T21:06:30.771Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "AUDI a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2023-10-24T21:06:52.579Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "5",
+      "object_repr": "BMW a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2023-10-24T21:07:10.329Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "MERC e60 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2023-10-26T09:29:58.653Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "yan",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Phone number\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2023-10-26T10:32:21.625Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "egor",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\", \"Phone number\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2023-10-26T12:00:07.012Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "7",
+      "object_repr": "AUDI a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2023-10-26T12:00:23.664Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "8",
+      "object_repr": "AUDI a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2023-10-26T12:00:30.471Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "9",
+      "object_repr": "BMW a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2023-10-26T12:00:48.462Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "10",
+      "object_repr": "AUDI a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2023-10-26T12:00:55.437Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "11",
+      "object_repr": "AUDI a6c5 by: egor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2023-10-29T20:26:36.954Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "15",
+      "object_repr": "123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2023-10-29T20:26:36.960Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "14",
+      "object_repr": "123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2023-10-29T20:26:36.961Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "13",
+      "object_repr": "123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2023-10-29T20:26:36.962Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "12",
+      "object_repr": "123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.379Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "28",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.382Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "27",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.383Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "26",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.383Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "25",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.384Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "24",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.386Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "23",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.387Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "22",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.388Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "21",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.389Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "20",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.390Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "19",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.391Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "18",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.391Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "17",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+      "action_time": "2023-10-29T20:42:06.391Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "16",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+      "action_time": "2023-10-29T21:16:30.385Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "35",
+      "object_repr": "eg eg by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+      "action_time": "2023-10-29T21:16:30.388Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "34",
+      "object_repr": "111 111 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+      "action_time": "2023-10-29T21:16:30.389Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "33",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+      "action_time": "2023-10-29T21:16:30.390Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "32",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+      "action_time": "2023-10-29T21:16:30.391Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "31",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+      "action_time": "2023-10-29T21:16:30.392Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "30",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+      "action_time": "2023-10-29T21:16:30.394Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "29",
+      "object_repr": "123123123123123123 123 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+      "action_time": "2023-11-06T14:10:47.690Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "19",
+      "object_repr": "Audi A6C5 by: yan",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+      "action_time": "2023-11-06T14:11:00.635Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "36",
+      "object_repr": "Audi A6C5 by: yan",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+      "action_time": "2023-11-06T14:12:52.851Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "37",
+      "object_repr": "Audi A6C6 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+      "action_time": "2023-11-06T14:12:52.859Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "10",
+      "object_repr": "Rollc-Royce Phantom by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+      "action_time": "2023-11-06T14:15:21.950Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "38",
+      "object_repr": "Audi A6C5 by: yan",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+      "action_time": "2023-11-06T14:17:13.464Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "11",
+      "object_repr": "AUDI a6c5 by: egor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add car",
+      "content_type": 6,
+      "codename": "add_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change car",
+      "content_type": 6,
+      "codename": "change_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete car",
+      "content_type": 6,
+      "codename": "delete_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view car",
+      "content_type": 6,
+      "codename": "view_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add image",
+      "content_type": 7,
+      "codename": "add_image"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change image",
+      "content_type": 7,
+      "codename": "change_image"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete image",
+      "content_type": 7,
+      "codename": "delete_image"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view image",
+      "content_type": 7,
+      "codename": "view_image"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 8,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 8,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 8,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 8,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "advertisements",
+      "model": "car"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "advertisements",
+      "model": "image"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "users",
+      "model": "user"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "bfhvx0zcierl68imajlom18iasrirr0o",
+    "fields": {
+      "session_data": ".eJxVjEsOwjAMBe-SNYponMQxS_Y9Q-U4Li2gVOpnhbg7VOoCtm9m3st0vK1Dty06d2MxF-PM6XfLLA-tOyh3rrfJylTXecx2V-xBF9tORZ_Xw_07GHgZvnWERLE0rEjiOQiG5DTl0hM14jB6UCLQIL5gj3BWzDEFAJAYGmJv3h_W1TdB:1qxD7b:Tdd5PZmXE2rmfP0-YmSuZO8VoJoXKSht6zqO8IxZV7I",
+      "expire_date": "2023-11-12T21:14:59.133Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "zziycbhxcah7a5vr75lu0yatbchntwxr",
+    "fields": {
+      "session_data": ".eJxVjEsOwiAUAO_C2hCQry7d9wzkfahUDSSlXRnvbki60O3MZN4iwb6VtPe8poXFVWhx-mUI9Mx1CH5AvTdJrW7rgnIk8rBdTo3z63a0f4MCvYwtZm0JvQlKKRudcmCRMphI1vgclNGWiejCZwzGhdniDBA1ee-0ZxafL9fYN-g:1r00PP:JsjDm8pViwKya3SOZlfU53m1J984UFDwG7M8yV21GQQ",
+      "expire_date": "2023-11-20T14:16:55.571Z"
+    }
+  },
+  {
+    "model": "advertisements.car",
+    "pk": 1,
+    "fields": {
+      "username": 1,
+      "brand": "AUDI",
+      "model": "a6c5",
+      "release_year": 2000,
+      "mileage": 400000,
+      "color": "white",
+      "created_timestamp": "2023-10-24T20:09:48.737Z",
+      "description": "������� � ������� �����, ������ � ��������� ��������� ��� ����� ���, ����������� � 2008���� �� ��������, ����� �������� ������� ������� ������ ������� 6-7� �� 100��, ������� ������������ ��������� �������, �������� � ������� ����������, ����� ������� ������� �� ���� �� ����, ����� ������ ������� �� �����, ������ ������, ��� ����� ����� � ������ ������� �������, �������� ��� ��������� ������ ��������. ���� �������� ����.",
+      "price": "5000.00"
+    }
+  },
+  {
+    "model": "advertisements.car",
+    "pk": 2,
+    "fields": {
+      "username": 1,
+      "brand": "BMW",
+      "model": "a6c5",
+      "release_year": 2000,
+      "mileage": 20000,
+      "color": "black",
+      "created_timestamp": "2023-10-24T20:09:48.737Z",
+      "description": "helloi",
+      "price": "4500.00"
+    }
+  },
+  {
+    "model": "advertisements.car",
+    "pk": 3,
+    "fields": {
+      "username": 1,
+      "brand": "MERC",
+      "model": "e60",
+      "release_year": 2000,
+      "mileage": 200000,
+      "color": "black",
+      "created_timestamp": "2023-10-24T20:11:47.981Z",
+      "description": "a",
+      "price": "5000.00"
+    }
+  },
+  {
+    "model": "advertisements.car",
+    "pk": 39,
+    "fields": {
+      "username": 2,
+      "brand": "Audi",
+      "model": "A6C5",
+      "release_year": 2002,
+      "mileage": 25000,
+      "color": "������ ��������",
+      "created_timestamp": "2023-11-06T14:16:04.208Z",
+      "description": "���� � ������� ���������, ����� � ������� �������� �������.������ ���� ������ � �������, ����������, � ����� ����� ��������. ����������� ��������� � ��������.����� �������� � ���������.����� ������� �������� � �����. ������ �� ���������. ��� �����.�������� ������������. ����� ����������� .�� ��� ������������ ������� ������ �� �������� �������� ������� ��������� � ��������� �� ������� ���� �� ����������. �������� ����� �� ���� S ��� ������",
+      "price": "5800.00"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 2,
+    "fields": {
+      "car": 1,
+      "images": "images/1184_1On3JjB.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 3,
+    "fields": {
+      "car": 1,
+      "images": "images/8d090c0d2c1485a85d108bcf399ce953.jpeg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 4,
+    "fields": {
+      "car": 1,
+      "images": "images/74f5756f5efcee7c64f1cd062b94e171.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 5,
+    "fields": {
+      "car": 2,
+      "images": "images/5b8d710932bcb69c9f3c29cabb26ce2e_rhur4it.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 6,
+    "fields": {
+      "car": 3,
+      "images": "images/1b3d4582af85ffd6122e97873d213b1f.jpeg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 7,
+    "fields": {
+      "car": 1,
+      "images": "images/4032.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 8,
+    "fields": {
+      "car": 1,
+      "images": "images/4022.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 9,
+    "fields": {
+      "car": 2,
+      "images": "images/3617.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 10,
+    "fields": {
+      "car": 1,
+      "images": "images/1184_Qxn4lMZ.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 11,
+    "fields": {
+      "car": 1,
+      "images": "images/4032_DlfxpD5.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 27,
+    "fields": {
+      "car": 39,
+      "images": "images/5323_kMEbAXz.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 28,
+    "fields": {
+      "car": 39,
+      "images": "images/5493_f4PKqzY.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 29,
+    "fields": {
+      "car": 39,
+      "images": "images/5513_5hSP7l0.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 30,
+    "fields": {
+      "car": 39,
+      "images": "images/5583_SwITWdc.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 31,
+    "fields": {
+      "car": 39,
+      "images": "images/5803_sE0pR0s.jpg"
+    }
+  },
+  {
+    "model": "advertisements.image",
+    "pk": 32,
+    "fields": {
+      "car": 39,
+      "images": "images/8232_iajK0D9.jpg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$FzcnESywiLlYkkIxHSTL77$QPz6JycKMHUT+aPsR5/M+B0Cp4NiwrfLOHMTix0J76c=",
+      "last_login": "2023-11-06T14:16:55.568Z",
+      "is_superuser": true,
+      "username": "egor",
+      "first_name": "����",
+      "last_name": "�������",
+      "email": "egor.zharskiy@mail.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-23T11:41:15Z",
+      "phone_number": "+375444587305",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$R8HPfLlFg5q9Wa7PapmT7p$ktYyhqKyxOfcm6CG7vm/BwXa9Z8K8g27w6W/cGldwkQ=",
+      "last_login": "2023-11-06T14:15:33.661Z",
+      "is_superuser": false,
+      "username": "yan",
+      "first_name": "yan",
+      "last_name": "yan",
+      "email": "yan@mail.ru",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-26T08:19:50Z",
+      "phone_number": "+375444587305",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$g5e0QFldZHBuYHdSwZEpjR$kOzKjQB6SLqahK2Rntn6IR6EWmRb8kGMHEw2zvfR2J8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "���",
+      "first_name": "���",
+      "last_name": "���",
+      "email": "xyi@fe.dsa",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-11-02T09:50:02.945Z",
+      "phone_number": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
