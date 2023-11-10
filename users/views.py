@@ -143,7 +143,6 @@ def demo_post(request):
                                  price=request.POST['price'])
         car.save()
 
-
         for f in request.FILES.getlist('photos'):
             print(f)
             data = f.read()
