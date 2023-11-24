@@ -45,7 +45,7 @@
             {% if user.is_authenticated %}
                 <div class="seller-info">
                     <h3>Контактная информация продавца:</h3>
-                    <p><a style="color:blue; font-size: 18px" href="{% url 'users:profile' user_id %}">Профиль
+                    <p><a style="color:blue; font-size: 18px" href="{% url 'users:profile' user_id%}">Профиль
                         продавца</a></p>
                     <p>Продавец: {{ car.username.first_name }} {{ car.username.last_name }}</p>
                     <p>Email: {{ car.username.email }}</p>

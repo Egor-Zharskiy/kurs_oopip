@@ -53,16 +53,25 @@ def registration(request):
 
 
 def profile(request, pk):
+    context = {}
     if not pk:
         form = UserProfileForm(instance=request.user)
         advertisements = Car.objects.filter(username=request.user)
+        context['user_id'] = request.user.id
+        print(request.user.id, 'request.user.id')
     else:
+        print(request.user.id, 'else')
         form = UserProfileForm(instance=User.objects.get(pk=pk))
         advertisements = Car.objects.filter(username=User.objects.get(pk=pk))
-    context = {
-        'form': form,
-        'advertisements': advertisements
-    }
+    context['form'] = form
+
+    owner_id = advertisements.first().username.id if advertisements else 0
+    # проверить, не пусто ли количество объявлений продавца
+    # owner_id = advertisements.first().username.id
+    print(owner_id, 'owner_id')
+
+    context['advertisements'] = advertisements
+    context['user_id'] = owner_id
 
     return render(request, 'profile.html', context=context)
 

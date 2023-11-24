@@ -16,15 +16,11 @@
 
         </div>
 
-{#        <div class="header_item headerbutton"><a href="#">Новости</a></div>#}
-{#        <div class="header_item headerbutton"><a href="#">События</a></div>#}
-{#        <div class="header_item headerbutton"><a href="#">Лайфхаки</a></div>#}
-{#        <div class="header_item headerbutton"><a href="#">Технологии</a></div>#}
-{#        <div class="header_item headerbutton"><a href="#">Бизнес</a></div>#}
     </div>
     <div class="header_section">
         {% if user.is_authenticated %}
-            <div class="header_item headerbutton"><a href="{% url 'users:profile' user.id%}">Профиль: {{ user.username }}</a>
+            <div class="header_item headerbutton"><a
+                    href="{% url 'users:profile' user.id %}">Профиль: {{ user.username }}</a>
             </div>
             <div class="header_item headerbutton"><a href="{% url 'users:logout' %}">Выйти</a></div>
         {% else %}

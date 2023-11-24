@@ -1,6 +1,6 @@
 
 html {
-  /*font-family: 'Lobster', cursive;*/
+    /*font-family: 'Lobster', cursive;*/
 }
 
 a {
@@ -369,6 +369,7 @@ input[type="submit"]:hover {
 }
 
 .start-button {
+    margin-top: 15px;
     text-align: center;
 }
 
@@ -680,7 +681,7 @@ h3 {
 /*sidebar*/
 .filter-input {
     display: block; /* Установите display в block */
-        width: 100px; /* Установите желаемую ширину */
+    width: 100px; /* Установите желаемую ширину */
     margin-bottom: 10px; /* Добавьте отступ между элементами */
     white-space: nowrap;
     overflow: hidden;
@@ -765,7 +766,7 @@ h3 {
     font-size: 16px;
 }
 
-#generations{
+#generations {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -775,5 +776,99 @@ h3 {
     background-color: #fff;
 }
 
+/* Стили для логотипа и кнопки */
+.center-img {
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    padding: 20px 0;
+}
 
+.logo {
+    max-width: 200px;
+    height: auto;
+}
 
+.start-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #689CD2;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.start-button a:hover {
+    background-color: #25507e;
+}
+
+/* Стили для формы поиска */
+.start-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
+    margin: 0 auto auto auto;
+}
+
+.sidebar-form {
+    padding: 20px;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-adv-field {
+    width: 48%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.start-adv-field select{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px);
+}
+
+.start-adv-field label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.start-adv-field input[type="text"],
+.start-adv-field input[type="number"] {
+    margin-top: 7px;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px);
+}
+
+.start-adv-field input[type="submit"] {
+    margin-top: 24px ;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #689CD2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-adv-field input[type="submit"]:hover {
+    background-color: #25507e;
+}

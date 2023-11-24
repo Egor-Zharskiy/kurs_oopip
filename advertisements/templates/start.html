@@ -2,15 +2,167 @@
 {% load static %}
 
 {% block main %}
-    <main>
-        <div class="center-container">
+    <main style="justify-content: center; margin: auto auto 0 auto; display: block">
+        <div class="center-img">
             <img src="https://sun6-22.userapi.com/s/v1/ig2/csXvVieHknU0E1Y415Rv-NRH8Ot9RJSdmIHgXSicAr9G78sgC6YuszrHtFYDDHPKQotKZCTR07D6AjjSb6lrn1Zt.jpg?size=1280x1280&quality=96&crop=0,0,1280,1280&ava=1"
                  alt="Логотип" class="logo">
             <div class="start-button">
                 <a href="{% url 'advertisements:cars' %}">Начать подбор машины</a>
             </div>
         </div>
+
+        <div class="start-form-container">
+            <form class="sidebar-form" method="GET" action="{% url 'advertisements:cars' %}">
+                <div class="start-adv-field">
+                    <label for="brand">Марка машины:</label>
+                    <select id="brand" name="brand">
+                        <option value="">Выберите марку</option>
+                        <!-- Ваши опции для выбора марки -->
+                    </select>
+                </div>
+
+                <div class="start-adv-field">
+                    <label for="model">Модель:</label>
+                    <select id="model" name="model">
+                        <option value="">Выберите модель</option>
+                        <!-- Ваши опции для выбора модели -->
+                    </select>
+                </div>
+
+                <div class="start-adv-field">
+                    <label for="generations">Поколение:</label>
+                    <select id="generations" name="generations">
+                        <option value="">Выберите поколение</option>
+                        <!-- Ваши опции для выбора поколения -->
+                    </select>
+                </div>
+
+                <div class="start-adv-field">
+                    <label for="release_year">Год выпуска:</label>
+                    <input type="number" id="release_year" name="release_year">
+                </div>
+
+                <div class="start-adv-field">
+                    <label for="mileage">Пробег (в км):</label>
+                    <input type="number" id="mileage" name="mileage">
+                </div>
+
+                <div class="start-adv-field submit-field">
+                    <input type="submit" value="Искать" href="{% url 'advertisements:cars' %}">
+                </div>
+            </form>
+        </div>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Подключаем jQuery -->
+
+    <script>
+        $(document).ready(function () {
+            // Выполняем AJAX-запрос для получения списка брендов
+            $.ajax({
+                url: '{% url "users:get_car_brands" %}',  // URL-маршрут для получения брендов
+                dataType: 'json',
+                success: function (data) {
+                    var brandSelect = $('#brand');
+                    brandSelect.empty();
+                    {#console.log(data.brands)#}
+                    brandSelect.append($('<option>', {
+                        text: 'Выберите бренд',
+                        disabled: true,
+                        selected: true
+                    }));
+                    for (var i = 0; i < data.brands.length; i++) {
+                        brandSelect.append($('<option>', {
+                            value: data.brands[i].id,
+                            text: data.brands[i].name
+                        }));
+                    }
+                }
+            });
+
+            // Слушаем изменение выбора бренда и выполняем соответствующий AJAX-запрос для моделей
+            $('#brand').on('change', function () {
+                var selectedBrand = $(this).val();
+                {#console.log(selectedBrand)#}
+
+                var url = '{% url "users:get_models" %}';  // Замените 0 на выбранное значение
+                $.ajax({
+                    url: url,  // URL-маршрут для получения моделей
+                    data: {
+                        'brand_id': selectedBrand
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        var modelSelect = $('#model');
+                        modelSelect.empty();
+                        modelSelect.append($('<option>', {
+                            text: 'Выберите бренд',
+                            disabled: true,
+                            selected: true
+                        }));
+                        for (var i = 0; i < data.models.length; i++) {
+                            modelSelect.append($('<option>', {
+                                value: data.models[i].id,
+                                text: data.models[i].name
+                            }));
+                        }
+                    }
+                });
+            });
+
+
+            $('#model').on('change', function () {
+                var selectedModel = $(this).val(); // Получаем значение выбранной модели
+                console.log(selectedModel);
+
+                var url = '{% url "users:get_generations" %}'; // Замените на URL-маршрут для получения поколений
+                $.ajax({
+                    url: url,
+                    data: {
+                        'model_id': selectedModel // Добавляем выбранную модель в параметры запроса
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        var generations = $('#generations');
+                        console.log(data, 'data');
+                        generations.empty();
+                        generations.append($('<option>', {
+                            text: 'Выберите поколение',
+                            disabled: true,
+                            selected: true
+                        }));
+                        for (var i = 0; i < data.generations.length; i++) {
+                            console.log(data.generations[i], 'iii')
+                            generations.append($('<option>', {
+                                value: data.generations[i].id,
+                                text: data.generations[i].name
+                            }));
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
+    {#    <script>#}
+    {#        document.addEventListener('DOMContentLoaded', function () {#}
+    {#            const brandSelect = document.getElementById('brand');#}
+    {##}
+    {#            const xhr = new XMLHttpRequest();#}
+    {#            xhr.open('GET', '/get_car_brands/', true);#}
+    {#            xhr.onreadystatechange = function () {#}
+    {#                if (xhr.readyState === 4 && xhr.status === 200) {#}
+    {#                    const data = JSON.parse(xhr.responseText);#}
+    {#                    data.brands.forEach(brand => {#}
+    {#                        let option = document.createElement('option');#}
+    {#                        option.value = brand.id;#}
+    {#                        option.text = brand.name;#}
+    {#                        brandSelect.appendChild(option);#}
+    {#                    });#}
+    {#                }#}
+    {#            };#}
+    {#            xhr.send();#}
+    {#        });#}
+    {#    </script>#}
+
 {% endblock %}
-</body>
-</html>

@@ -63,7 +63,8 @@
             {#                </div>#}
             {#            </form>#}
 
-            <form class="create-post" method="post" enctype="multipart/form-data" action="{% url 'users:create_post' %}">
+            <form class="create-post" method="post" enctype="multipart/form-data"
+                  action="{% url 'users:create_post' %}">
                 {% csrf_token %}
                 <label for="brand">Бренд:</label>
                 <select style="color:black" id="brand" name="brand">
@@ -137,7 +138,9 @@
                             brandSelect.empty();
                             {#console.log(data.brands)#}
                             brandSelect.append($('<option>', {
-                                text: 'Выберите бренд'
+                                text: 'Выберите бренд',
+                                disabled: true,
+                                selected: true
                             }));
                             for (var i = 0; i < data.brands.length; i++) {
                                 brandSelect.append($('<option>', {
@@ -164,7 +167,9 @@
                                 var modelSelect = $('#model');
                                 modelSelect.empty();
                                 modelSelect.append($('<option>', {
-                                    text: 'Выберите бренд'
+                                    text: 'Выберите модель',
+                                    disabled: true,
+                                    selected: true
                                 }));
                                 for (var i = 0; i < data.models.length; i++) {
                                     modelSelect.append($('<option>', {
@@ -191,7 +196,9 @@
                                 console.log(data, 'data');
                                 generations.empty();
                                 generations.append($('<option>', {
-                                    text: 'Выберите поколение'
+                                    text: 'Выберите поколение',
+                                    disabled: true,
+                                    selected: true
                                 }));
                                 for (var i = 0; i < data.generations.length; i++) {
                                     console.log(data.generations[i], 'iii')

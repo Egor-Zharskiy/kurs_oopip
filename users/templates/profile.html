@@ -31,9 +31,9 @@
                 {% for adv in advertisements %}
                     <div class="advertisement">
                         <a href="{% url 'advertisements:article' adv.id %}">
-                            <h3>{{ adv.brand }} {{ adv.model }}</h3>
+                            <h3>{{ adv.brand }} {{ adv.model }}</h3>$</p>
                         </a>
-                        <p>{{ adv.price }} $</p>
+                        <p>{{ adv.price }}$</p>
 
                         {% if user.id == user_id %}
                             <div class="change-button">
