@@ -2,25 +2,33 @@
 {% load static %}
 {% block main %}
     <main>
-        <div class="sideBar">
-            <!-- Ваш боковой бар с элементами -->
-        </div>
+        {#        <div class="sideBar">#}
+        {##}
+        {#        </div>#}
 
         <div class="form-container">
             <form action="{% url 'users:login' %}" method="post">
                 {% csrf_token %}
-
                 <h2>Вход</h2>
+
+                {% if form.non_field_errors %}
+                    <div class="error-message">
+                        {{ form.non_field_errors }}
+
+                    </div>
+                {% endif %}
+
 
                 <div class="form-field">
                     <label for="username">Имя пользователя</label>
-                    <input type="text" name="username" id="username" placeholder="Имя пользователя">
+                    <input type="text" name="username" id="username" placeholder="Имя пользователя" required>
                 </div>
 
                 <div class="form-field">
                     <label for="password">Пароль</label>
-                    <input type="password" name="password" id="password" placeholder="Пароль">
+                    <input type="password" name="password" id="password" placeholder="Пароль" required>
                 </div>
+
 
                 <div class="form-field">
                     <input type="submit" value="Войти">

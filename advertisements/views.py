@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, UpdateView
 
 from advertisements.forms import FilterForm
 from advertisements.models import Car, Image, CarBrand, CarModel, CarGeneration
@@ -9,11 +9,10 @@ from common.views import TitleMixin
 
 
 class StartView(TitleMixin, TemplateView):
-    title = "CarSell - Начальная страница"
 
     def get(self, request, *args, **kwargs):
         if not bool(request.GET):
-            return render(request, 'start.html', context={})
+            return render(request, 'start.html', context={'title': "CarSell - Начальная страница"})
 
         brand_id = request.GET.get('brand')
         model_id = request.GET.get('model')
@@ -100,8 +99,9 @@ class CarsView(TitleMixin, ListView):
     #         return render(request, 'index.html', context)
 
 
-class ArticleView(TemplateView):
+class ArticleView(TitleMixin, TemplateView):
     template_name = 'article.html'
+    title = 'Объявление'
 
     def get_context_data(self, pk, **kwargs):
         car = Car.objects.get(pk=pk)

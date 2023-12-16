@@ -23,11 +23,13 @@
             <form action="{% url 'users:registration' %}" method="post">
                 {% csrf_token %}
                 <h2>Регистрация</h2>
+                <div class="error-message">{{ form.errors }}</div>
 
 
                 <div class="form-field input-right">
                     <label for="name">Имя пользователя</label>
                     {{ form.username }}
+
 
                 </div>
 

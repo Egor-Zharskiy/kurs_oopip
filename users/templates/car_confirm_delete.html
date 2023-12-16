@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="main">
+        <div class="create-advertisement">
+            <h2>Подтвердите удаление</h2>
+
+            <form method="post" action="{% url 'users:delete_car_confirm' adv %}">
+                {% csrf_token %}
+
+                <p>Вы уверены, что хотите удалить это объявление?</p>
+
+                <div class="advertisement-field"
+                     style="width: 50%; align-items: center; text-align: center; color:black">
+                    <button type="submit" name="action" value="delete" style="color:black">Удалить</button>
+                </div>
+                <div class="advertisement-field"
+                     style="width: 50%; align-items: center; text-align: center; color:black;">
+                    <button type="submit" name="action" style="color:black" href="{% url 'users:profile' user.id %}">
+                        Отмена
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

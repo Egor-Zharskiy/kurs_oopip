@@ -22,23 +22,32 @@
                 <h2>Телефон: {{ form.phone_number }}</h2>
             </div>
 
-            <div class="button-container">
-                <a class="profile_create_adv_button" href="{% url 'users:create_post' %}">Создать объявление</a>
-            </div>
-
+            {% if is_owner == 1 %}
+                <div class="button-container">
+                    <a class="profile_create_adv_button" href="{% url 'users:create_post' %}">Создать объявление</a>
+                </div>
+            {% endif %}
             <div class="user-advertisements">
+            {% if visibility == 1 %}
                 <h2>Ваши объявления:</h2>
+            {% else %}
+                <h2>Объявления пользователя:</h2>
+            {% endif %}
+
                 {% for adv in advertisements %}
                     <div class="advertisement">
                         <a href="{% url 'advertisements:article' adv.id %}">
-                            <h3>{{ adv.brand }} {{ adv.model }}</h3>$</p>
+                            <h3>{{ adv.brand }} {{ adv.model }}</h3>
                         </a>
                         <p>{{ adv.price }}$</p>
 
-                        {% if user.id == user_id %}
+                        {% if is_owner == 1 %}
                             <div class="change-button">
-                                <a href="{% url 'users:create_post' %}">Изменить</a>
+                                <a href="{% url 'users:edit_car' adv.id %}">Изменить</a>
                             </div>
+                            {#                            <div class="delete-button">#}
+                            {#                                <a href="{% url 'users:delete_car' adv.id %}">Удалить</a>#}
+                            {#                            </div>#}
                         {% else %}
                         {% endif %}
 

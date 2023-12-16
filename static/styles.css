@@ -833,7 +833,8 @@ h3 {
     display: flex;
     flex-direction: column;
 }
-.start-adv-field select{
+
+.start-adv-field select {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -858,7 +859,7 @@ h3 {
 }
 
 .start-adv-field input[type="submit"] {
-    margin-top: 24px ;
+    margin-top: 24px;
     padding: 10px 20px;
     font-size: 18px;
     background-color: #689CD2;
@@ -872,3 +873,82 @@ h3 {
 .start-adv-field input[type="submit"]:hover {
     background-color: #25507e;
 }
+
+
+/*Кнопка сохранения изменений при редактировании объявлений*/
+.edit-advertisement {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #689CD2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-advertisement button:hover {
+    background-color: #25507e;
+}
+
+
+/* Стили для кнопки удаления */
+.delete-button {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.delete-button a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #ff6347; /* Цвет фона кнопки (красный) */
+    color: #fff; /* Цвет текста */
+    border-radius: 5px;
+    border: 1px solid #ff6347; /* Цвет границы кнопки (красный) */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.delete-button a:hover {
+    background-color: #fff; /* Измененный цвет фона при наведении (белый) */
+    color: #ff6347; /* Измененный цвет текста при наведении (красный) */
+}
+
+/* Ваш существующий CSS... */
+
+/* Добавляем стили для кнопки "Удалить" */
+.delete-advertisement-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF0000; /* Цвет фона для кнопки "Удалить" */
+    color: #FFFFFF; /* Цвет текста для кнопки "Удалить" */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Добавляем отступ снизу для разделения кнопок */
+}
+
+/* Добавляем стили для кнопки "Отмена" */
+.cancel-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #808080; /* Цвет фона для кнопки "Отмена" */
+    color: #FFFFFF; /* Цвет текста для кнопки "Отмена" */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+

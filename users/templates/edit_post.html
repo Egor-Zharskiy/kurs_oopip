@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="main">
+        <div class="create-advertisement">
+
+            {#    <div class="edit-advertisement">#}
+            <h1>Редактировать объявление</h1>
+            <form method="post" enctype="multipart/form-data" class="edit-post-form">
+                {% csrf_token %}
+
+                <div class="advertisement-field">
+                    <label for="release_year">Год выпуска:</label>
+                    {{ form.release_year }}
+                </div>
+
+                <div class="advertisement-field">
+                    <label for="mileage">Пробег (в км):</label>
+                    {{ form.mileage }}
+                </div>
+
+                <div class="advertisement-field">
+                    <label for="color">Цвет:</label>
+                    {{ form.color }}
+                </div>
+
+                <div class="advertisement-field">
+                    <label for="description">Описание:</label>
+                    {{ form.description }}
+                </div>
+
+                <div class="advertisement-field">
+                    <label for="price">Цена (в долларах):</label>
+                    {{ form.price }}
+                </div>
+
+                <button type="submit" class="edit-advertisement">Сохранить изменения</button>
+            </form>
+        </div>
+    </div>
+    {#            </div>#}
+{% endblock %}

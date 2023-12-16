@@ -1,13 +1,15 @@
-import uuid
-from datetime import timedelta
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Div, Field, Submit, HTML
+from django import forms
 
+from datetime import timedelta
 from django import forms
 from django.contrib.auth.forms import (AuthenticationForm, UserChangeForm,
                                        UserCreationForm)
 from django.utils.timezone import now
 
 from users.models import User
-from advertisements.models import Car, Image
+from advertisements.models import Car, Image, CarBrand, CarModel, CarGeneration
 
 
 class UserLoginForm(AuthenticationForm):
@@ -50,7 +52,7 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'username', 'email', 'phone_number', 'password1', 'password2')
 
     def save(self, commit=True):
         user = super(UserRegistrationForm, self).save(commit=True)
@@ -59,8 +61,6 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserProfileForm(UserChangeForm):
-    # phone_number = models.CharField(max_length=20)
-
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
     image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'custom-file-input'}), required=False)
@@ -92,8 +92,11 @@ class CarForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CarForm, self).__init__(*args, **kwargs)
-        # Добавьте атрибут "id" для бренда и модели, чтобы использовать их в JavaScript
         self.fields['brand'].widget.attrs['id'] = 'id_brand'
         self.fields['model'].widget.attrs['id'] = 'id_model'
 
-# class CreateCarForm(forms.ModelForm):
+
+class CarEditForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ['mileage', 'color', 'price', 'description']

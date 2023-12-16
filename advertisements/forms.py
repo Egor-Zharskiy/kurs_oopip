@@ -1,5 +1,7 @@
 from django import forms
 
+from advertisements.models import Car
+
 
 class FilterForm(forms.Form):
     min_price = forms.DecimalField(widget=forms.NumberInput())
