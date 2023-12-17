@@ -97,6 +97,8 @@ class CarForm(forms.ModelForm):
 
 
 class CarEditForm(forms.ModelForm):
+    # images = forms.FileField(widget=forms.FileInput(attrs={'multiple': True}), required=False)
+
     class Meta:
         model = Car
         fields = ['mileage', 'color', 'price', 'description']

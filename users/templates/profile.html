@@ -28,11 +28,11 @@
                 </div>
             {% endif %}
             <div class="user-advertisements">
-            {% if visibility == 1 %}
-                <h2>Ваши объявления:</h2>
-            {% else %}
-                <h2>Объявления пользователя:</h2>
-            {% endif %}
+                {% if is_owner == 1 %}
+                    <h2>Ваши объявления:</h2>
+                {% else %}
+                    <h2>Объявления пользователя:</h2>
+                {% endif %}
 
                 {% for adv in advertisements %}
                     <div class="advertisement">
@@ -42,12 +42,14 @@
                         <p>{{ adv.price }}$</p>
 
                         {% if is_owner == 1 %}
-                            <div class="change-button">
-                                <a href="{% url 'users:edit_car' adv.id %}">Изменить</a>
+                            <div class="button-group">
+                                <div class="change-button">
+                                    <a href="{% url 'users:edit_car' adv.id %}">Изменить</a>
+                                </div>
+                                <div class="change-button">
+                                    <a href="{% url 'users:delete_car' adv.id %}">Удалить</a>
+                                </div>
                             </div>
-                            {#                            <div class="delete-button">#}
-                            {#                                <a href="{% url 'users:delete_car' adv.id %}">Удалить</a>#}
-                            {#                            </div>#}
                         {% else %}
                         {% endif %}
 

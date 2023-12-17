@@ -160,21 +160,6 @@ class ProfileView(View):
         }
 
         return render(request, self.template_name, context)
-    # def get(self, pk, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     pk = self.kwargs.get('pk')
-    #     print(pk, 'pk')
-    #     context['form'] = UserProfileForm(instance=User.objects.get(pk=pk))
-    #     advertisements = Car.objects.filter(username=User.objects.get(pk=pk))
-    #     owner_id = advertisements.first().username.id if advertisements else 0
-    #     context['advertisements'] = advertisements
-    #     context['user_id'] = owner_id
-    #     visibility = 1 if owner_id == self.request.user.id else 0
-    #     print(visibility, 'visibility')
-    #     context['visibility'] = visibility
-    #     print(owner_id, 'owner_id')
-    #     print(self.request.user.id, 'self.request.user.id')
-    #     return context
 
 
 class GetModels(View):
@@ -229,17 +214,6 @@ def demo_post(request):
     return render(request, 'create_post.html', context={})
 
 
-# class CarUpdateView(UpdateView):
-#     model = Car
-#     form_class = EditCar
-#     template_name = 'edit_post.html'
-#     success_url = reverse_lazy('advertisements:cars')
-#
-#     def get_object(self, queryset=None):
-#         car_id = self.kwargs.get('car_id')
-#         return get_object_or_404(Car, id=car_id)
-
-
 class GetModelsView(View):
     def get(self, request, *args, **kwargs):
         brand_id = self.request.GET.get('brand_id')
@@ -267,6 +241,16 @@ class EditCarView(TitleMixin, UpdateView):
 
         return user_profile_url
 
+    def form_valid(self, form):
+        print(self.request.FILES, 'files')
+        print(self.model.pk)
+        for f in self.request.FILES.getlist('photos'):
+            print(f)
+            data = f.read()
+            image = Image.objects.create(car=self.object, images=f)
+            image.save()
+        return redirect(reverse('advertisements:cars'))
+
 
 class DeleteCarView(View):
 
@@ -276,3 +260,10 @@ class DeleteCarView(View):
         car.delete()
 
         return HttpResponseRedirect(reverse('users:profile', kwargs={'pk': request.user.id}))
+
+
+def delete_photo(request, image_id):
+    image = get_object_or_404(Image, id=image_id)
+    car_id = image.car.id
+    image.delete()
+    return redirect('users:edit_car', pk=car_id)

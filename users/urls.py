@@ -2,7 +2,7 @@ from django.urls import path
 from users.views import (profile,
                          logout, GetModels,
                          get_car_brands, get_generations, demo_post, GetModelsView, GetGenerationsView,
-                         EditCarView, DeleteCarView, LoginUser, Registration, ProfileView)  # , login, registration
+                         EditCarView, DeleteCarView, LoginUser, Registration, ProfileView, delete_photo)  # , login, registration
 
 app_name = 'users'
 urlpatterns = [
@@ -18,4 +18,6 @@ urlpatterns = [
     path('update_generations/', GetGenerationsView.as_view(), name='update_generations'),
     path('edit/<int:pk>', EditCarView.as_view(), name='edit_car'),
     path('delete_car/<int:pk>', DeleteCarView.as_view(), name='delete_car'),
+    path('delete_photo/<int:image_id>', delete_photo, name='delete_photo'),
+
 ]

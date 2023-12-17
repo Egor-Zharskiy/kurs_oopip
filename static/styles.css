@@ -259,7 +259,7 @@ body {
 }
 
 .card:hover .card-meta {
-    max-height: 100px; /* Измените это значение на желаемую высоту, в которой текст должен появиться */
+    max-height: 100px;
 }
 
 
@@ -353,8 +353,6 @@ input[type="submit"]:hover {
 }
 
 
-/* стиль кнопки на начальной странице */
-
 .center-container {
     text-align: center;
     position: absolute;
@@ -364,8 +362,8 @@ input[type="submit"]:hover {
 }
 
 .logo {
-    max-width: 200px; /* Максимальная ширина логотипа */
-    height: auto; /* Автоматическая высота для поддержки пропорций */
+    max-width: 200px;
+    height: auto;
 }
 
 .start-button {
@@ -388,12 +386,6 @@ input[type="submit"]:hover {
     background-color: #25507e;
 }
 
-
-/*profile*/
-
-/* Add these CSS styles to your existing styles.css or create a new CSS file */
-
-/* User Profile Page Styles */
 .user-profile {
     background: #fff;
     padding: 20px;
@@ -432,7 +424,6 @@ input[type="submit"]:hover {
     color: #666;
 }
 
-/* Improve button styles */
 .button {
     display: inline-block;
     padding: 10px 20px;
@@ -451,8 +442,6 @@ input[type="submit"]:hover {
     background-color: #25507e;
 }
 
-/*post details*/
-/* Стили для страницы представления машины */
 .car-details-container {
     display: flex;
     flex-direction: column;
@@ -496,8 +485,8 @@ h3 {
     font-size: 1em;
     max-width: 80%;
     overflow-wrap: break-word;
-    overflow-y: auto; /* Добавьте это свойство, чтобы появилась вертикальная прокрутка */
-    max-height: 200px; /* Задайте максимальную высоту, чтобы управлять размером области с описанием */
+    overflow-y: auto;
+    max-height: 200px;
 }
 
 .seller-info {
@@ -518,8 +507,8 @@ h3 {
     /*overflow: hidden;*/
     /*display: flex;*/
     margin-top: 100px;
-    flex-wrap: wrap; /* Позволяет изображениям переходить на следующую строку */
-    max-width: 50%; /* Устанавливает максимальную ширину контейнера */
+    flex-wrap: wrap;
+    max-width: 50%;
     text-align: center;
 }
 
@@ -527,14 +516,13 @@ h3 {
     /*max-width: 100%;*/
     /*max-height: 100%;*/
     /*height: auto;*/
-    width: 150px; /* Установите желаемую ширину для каждого изображения */
+    width: 150px;
     height: 112px;
-    margin-right: 10px; /* Отступ между изображениями */
+    margin-right: 10px;
 
 }
 
 
-/* Стили для увеличенных изображений */
 #zoom-overlay {
     display: none;
     position: fixed;
@@ -544,7 +532,7 @@ h3 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 9999;
-    text-align: center; /* Центрирование элементов внутри overlay */
+    text-align: center;
 }
 
 #zoomed-image {
@@ -555,15 +543,14 @@ h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    cursor: pointer; /* Добавляет курсор для закрытия увеличенного изображения */
+    cursor: pointer;
 }
 
 #zoomed-image:hover {
-    filter: brightness(0.9); /* Легкое затемнение изображения при наведении */
+    filter: brightness(0.9);
 }
 
 
-/*стили  для создания нового объявления*/
 .create-advertisement {
     background: #fff;
     padding: 20px;
@@ -627,7 +614,6 @@ h3 {
     background-color: #25507e;
 }
 
-/*кнопка для создания объявления*/
 .button-container {
     display: flex;
     justify-content: center;
@@ -651,8 +637,6 @@ h3 {
     background-color: #25507e;
 }
 
-/*кнопка изменения объявления*/
-
 .advertisement {
     display: flex;
     justify-content: space-between;
@@ -665,13 +649,13 @@ h3 {
 
 .change-button {
     background-color: #689CD2;
+    margin-left: 10px;
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-/* Add margin to create space between elements */
 .advertisement h3, .advertisement p {
     text-align: center;
     margin: 0;
@@ -680,9 +664,9 @@ h3 {
 
 /*sidebar*/
 .filter-input {
-    display: block; /* Установите display в block */
-    width: 100px; /* Установите желаемую ширину */
-    margin-bottom: 10px; /* Добавьте отступ между элементами */
+    display: block;
+    width: 100px;
+    margin-bottom: 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -691,9 +675,9 @@ h3 {
 .filter-button {
     color: blue;
     font-size: 18px;
-    display: block; /* Установите display в block */
-    width: 60px; /* Установите желаемую ширину */
-    margin-bottom: 10px; /* Добавьте отступ между элементами */
+    display: block;
+    width: 60px;
+    margin-bottom: 10px;
 }
 
 
@@ -739,7 +723,6 @@ h3 {
 }
 
 
-/* Стилизация для поля "Бренд" */
 #brand {
     width: 100%;
     padding: 10px;
@@ -750,7 +733,6 @@ h3 {
     background-color: #fff;
 }
 
-/* Стилизация для поля "Модель" */
 #model {
     width: 100%;
     padding: 10px;
@@ -776,7 +758,6 @@ h3 {
     background-color: #fff;
 }
 
-/* Стили для логотипа и кнопки */
 .center-img {
     justify-content: center;
     margin: auto;
@@ -804,7 +785,6 @@ h3 {
     background-color: #25507e;
 }
 
-/* Стили для формы поиска */
 .start-form-container {
     display: flex;
     justify-content: center;
@@ -893,8 +873,9 @@ h3 {
 }
 
 
-/* Стили для кнопки удаления */
 .delete-button {
+    float: right;
+    margin-left: 10px;
     display: inline-block;
     margin-right: 10px;
 }
@@ -902,38 +883,35 @@ h3 {
 .delete-button a {
     text-decoration: none;
     padding: 10px 20px;
-    background-color: #ff6347; /* Цвет фона кнопки (красный) */
-    color: #fff; /* Цвет текста */
+    background-color: #689CD2;
+    color: #fff;
     border-radius: 5px;
-    border: 1px solid #ff6347; /* Цвет границы кнопки (красный) */
+    border: 1px solid #689CD2;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .delete-button a:hover {
-    background-color: #fff; /* Измененный цвет фона при наведении (белый) */
-    color: #ff6347; /* Измененный цвет текста при наведении (красный) */
+    background-color: #fff;
+    color: #689CD2;
 }
 
-/* Ваш существующий CSS... */
 
-/* Добавляем стили для кнопки "Удалить" */
 .delete-advertisement-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #FF0000; /* Цвет фона для кнопки "Удалить" */
-    color: #FFFFFF; /* Цвет текста для кнопки "Удалить" */
+    background-color: #FF0000;
+    color: #FFFFFF;
     text-decoration: none;
     border: none;
     border-radius: 5px;
-    margin-bottom: 10px; /* Добавляем отступ снизу для разделения кнопок */
+    margin-bottom: 10px;
 }
 
-/* Добавляем стили для кнопки "Отмена" */
 .cancel-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #808080; /* Цвет фона для кнопки "Отмена" */
-    color: #FFFFFF; /* Цвет текста для кнопки "Отмена" */
+    background-color: #808080;
+    color: #FFFFFF;
     text-decoration: none;
     border: none;
     border-radius: 5px;
@@ -952,3 +930,33 @@ h3 {
     margin-bottom: 10px;
 }
 
+.button-group {
+    display: flex;
+}
+
+
+.image-container {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+
+.car-photo {
+    max-width: 25%;
+    height: auto;
+}
+
+.delete-button {
+    flex-shrink: 0;
+}
+
+.delete-button a {
+    display: block;
+    text-align: left;
+    background-color: #689CD2;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+}

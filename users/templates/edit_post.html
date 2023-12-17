@@ -33,8 +33,27 @@
                     <label for="price">Цена (в долларах):</label>
                     {{ form.price }}
                 </div>
+                <div class="advertisement-field">
+                    <label for="photos">Добавить новые фото:</label>
+                    <input type="file" id="photos" name="photos" multiple>
+                </div>
 
+                <div class="advertisement-field">
+                    <label>Загруженные Фотографии:</label>
+                    {% for image in form.instance.image_set.all %}
+                        <div class="image-container">
+                            {#                            <div class="image-frame">#}
+                            <img src="{{ image.images.url }}" alt="Car Photo" class="car-photo">
+                            {#                            </div>#}
+                            <div class="delete-button">
+                                <a href="{% url 'users:delete_photo' image.id %}">Удалить</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
                 <button type="submit" class="edit-advertisement">Сохранить изменения</button>
+
+
             </form>
         </div>
     </div>
