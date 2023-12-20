@@ -3,13 +3,50 @@
 
 {% block main %}
     <div class="car-details-container">
-        <div class="car-image">
-            {% for image in images %}
-                <img src="{{ image.images.url }}" alt="Car" class="zoomable">
-            {% endfor %}
-        </div>
+        <div class="slider-container">
+            <div class="slider">
+                {% for image in images %}
+                    <img src="{{ image.images.url }}" alt="Car" class="zoomable">
+                {% endfor %}
 
-        <!-- JavaScript код для увеличения изображений -->
+            </div>
+            <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+            <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
+        </div>
+        <script>const slider = document.querySelector('.slider');
+        const prevButton = document.querySelector('.prev-button');
+        const nextButton = document.querySelector('.next-button');
+        const slides = Array.from(slider.querySelectorAll('img'));
+        const slideCount = slides.length;
+        let slideIndex = 0;
+
+        prevButton.addEventListener('click', showPreviousSlide);
+        nextButton.addEventListener('click', showNextSlide);
+
+        function showPreviousSlide() {
+            slideIndex = (slideIndex - 1 + slideCount) % slideCount;
+            updateSlider();
+        }
+
+        function showNextSlide() {
+            slideIndex = (slideIndex + 1) % slideCount;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                if (index === slideIndex) {
+                    slide.style.display = 'block';
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+        }
+
+        updateSlider();
+        </script>
+
+
         <script>
             const images = document.querySelectorAll(".zoomable");
             const zoomOverlay = document.createElement("div");
@@ -33,19 +70,23 @@
                 zoomOverlay.style.display = "none";
             });
         </script>
+
+
         <div class="car-details">
             <div class="car-info">
                 <h2>{{ car.brand }} {{ car.model }} {{ car.generation }}</h2>
-                <p class="car-price">Цена: ${{ car.price }}</p>
+                <p class="car-price">Цена: {{ car.price }} $</p>
+                <p class="car-price">Пробег: {{ car.mileage }} км</p>
                 <h3>Описание: </h3>
                 <p class="car-description">
                     {{ car.description }}
                 </p>
+                <h3>Дата публикации: {{ car.created_timestamp }}</h3>
             </div>
             {% if user.is_authenticated %}
                 <div class="seller-info">
                     <h3>Контактная информация продавца:</h3>
-                    <p><a style="color:blue; font-size: 18px" href="{% url 'users:profile' user_id%}">Профиль
+                    <p><a style="color:blue; font-size: 18px" href="{% url 'users:profile' user_id %}">Профиль
                         продавца</a></p>
                     <p>Продавец: {{ car.username.first_name }} {{ car.username.last_name }}</p>
                     <p>Email: {{ car.username.email }}</p>
@@ -53,11 +94,9 @@
                 </div>
 
 
-
             {% else %}
                 <h3><a style='color: blue' href="{% url 'users:login' %} ">Авторизуйтесь, чтобы увидеть контактные
                     данные продавца</a></h3>
-
 
             {% endif %}
         </div>

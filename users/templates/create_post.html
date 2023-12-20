@@ -25,21 +25,18 @@
                 <select style="color:black" id="brand" name="brand">
                     <option value="">Выберите бренд</option>
 
-                    <!-- Опции для выбора бренда -->
                 </select>
                 <br>
                 <label for="model">Модель:</label>
                 <select id="model" name="model">
                     <option value="">Выберите модель</option>
 
-                    <!-- Опции для выбора модели -->
                 </select>
 
                 <label for="generations">Поколение:</label>
                 <select id="generations" name="generations">
                     <option value="">Выберите поколение</option>
 
-                    <!-- Опции для выбора модели -->
                 </select>
 
                 <div class="advertisement-field">
@@ -48,7 +45,7 @@
                 </div>
 
                 <div class="advertisement-field">
-                    <label for="color">Color:</label>
+                    <label for="color">Цвет:</label>
                     <input type="text" id="color" name="color" required>
                 </div>
 
@@ -76,17 +73,15 @@
                     <input type="submit" value="Создать">
                 </div>
 
-{#                <br>#}
-{#                <button style="color:black; font-size: 18px;" type="submit">Создать объявление</button>#}
+
             </form>
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Подключаем jQuery -->
 
             <script>
                 $(document).ready(function () {
-                    // Выполняем AJAX-запрос для получения списка брендов
                     $.ajax({
-                        url: '{% url "users:get_car_brands" %}',  // URL-маршрут для получения брендов
+                        url: '{% url "users:get_car_brands" %}',
                         dataType: 'json',
                         success: function (data) {
                             var brandSelect = $('#brand');
@@ -106,14 +101,13 @@
                         }
                     });
 
-                    // Слушаем изменение выбора бренда и выполняем соответствующий AJAX-запрос для моделей
                     $('#brand').on('change', function () {
                         var selectedBrand = $(this).val();
-                        {#console.log(selectedBrand)#}
 
-                        var url = '{% url "users:get_models" %}';  // Замените 0 на выбранное значение
+
+                        var url = '{% url "users:get_models" %}';
                         $.ajax({
-                            url: url,  // URL-маршрут для получения моделей
+                            url: url,
                             data: {
                                 'brand_id': selectedBrand
                             },
@@ -136,14 +130,14 @@
                         });
                     });
                     $('#model').on('change', function () {
-                        var selectedModel = $(this).val(); // Получаем значение выбранной модели
+                        var selectedModel = $(this).val();
                         console.log(selectedModel);
 
-                        var url = '{% url "users:get_generations" %}'; // Замените на URL-маршрут для получения поколений
+                        var url = '{% url "users:get_generations" %}';
                         $.ajax({
                             url: url,
                             data: {
-                                'model_id': selectedModel // Добавляем выбранную модель в параметры запроса
+                                'model_id': selectedModel
                             },
                             dataType: 'json',
                             success: function (data) {

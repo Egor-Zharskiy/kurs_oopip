@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="create-advertisement">
+        <h1>Изменение личных данных пользователя</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+            <div class="advertisement-field">
+                <label for="description">Имя:</label>
+                {{ form.first_name }}
+            </div>
+
+            <div class="advertisement-field">
+                <label for="description">Фамилия:</label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="advertisement-field">
+                <label for="description">Почта:</label>
+                {{ form.email }}
+            </div>
+
+            <div class="advertisement-field">
+                <label for="description">Номер телефона:</label>
+                {{ form.phone_number }}
+            </div>
+
+            <button type="submit" class="edit-advertisement">Сохранить изменения</button>
+
+{#            {{ form.as_p }}#}
+{#            <button type="submit">Save Changes</button>#}
+        </form>
+    </div>
+{% endblock %}

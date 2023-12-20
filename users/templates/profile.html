@@ -16,17 +16,23 @@
         <div class="user-profile">
             <h1 style="color:black">Профиль</h1>
             <div class="user-info">
-                <h2>Имя пользователя: {{ form.username }}</h2>
+{#                <h2>Имя пользователя: {{ form.username }}</h2>#}
                 <h2>Имя: {{ form.first_name }}</h2>
+                <h2>Фамилия: {{ form.last_name }}</h2>
                 <h2>Почта: {{ form.email }}</h2>
                 <h2>Телефон: {{ form.phone_number }}</h2>
             </div>
 
             {% if is_owner == 1 %}
                 <div class="button-container">
+                    <a class="profile_create_adv_button" href="{% url 'users:edit_profile' user.id%}">Изменить Профиль</a>
+                </div>
+
+                <div class="button-container">
                     <a class="profile_create_adv_button" href="{% url 'users:create_post' %}">Создать объявление</a>
                 </div>
             {% endif %}
+
             <div class="user-advertisements">
                 {% if is_owner == 1 %}
                     <h2>Ваши объявления:</h2>

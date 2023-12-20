@@ -472,7 +472,7 @@ h2 {
 }
 
 .car-price {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #689CD2;
 }
 
@@ -960,3 +960,52 @@ h3 {
     text-decoration: none;
     border-radius: 5px;
 }
+
+
+.slider-container {
+    width: 60%;
+    max-width: 400px;
+    height: 300px;
+    overflow: hidden;
+    margin: 20px auto;
+    position: relative; /* Добавлено */
+}
+
+.slider {
+    display: flex; /* Добавлено */
+    transition: transform 0.5s ease-in-out; /* Добавлено */
+}
+
+.slider img {
+    width: 100%; /* Изменено */
+    height: auto; /* Изменено */
+}
+
+.prev-button,
+.next-button {
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    position: absolute; /* Добавлено */
+    top: 50%; /* Добавлено */
+    transform: translateY(-50%); /* Добавлено */
+}
+
+.prev-button {
+    left: 10px; /* Изменено */
+}
+
+.next-button {
+    right: 10px; /* Изменено */
+}
+
+.prev-button:hover,
+.next-button:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+
+

@@ -34,6 +34,10 @@ class CarsView(TitleMixin, ListView):
         generation_id = self.request.GET.get('generations')
         release_year = self.request.GET.get('release_year')
         mileage = self.request.GET.get('mileage')
+        price_from = self.request.GET.get('price_from')
+        price_to = self.request.GET.get('price_to')
+        print(price_from, 'price_from')
+        print(price_to, 'price_to')
         cars = Car.objects.all()
 
         if brand_id:
@@ -51,10 +55,18 @@ class CarsView(TitleMixin, ListView):
 
         if mileage:
             cars = cars.filter(mileage=mileage)
-        print(cars, 'cars')
+
+        if price_from:
+            cars = cars.filter(price__gte=price_from)
+
+        if price_to:
+            cars = cars.filter(price__lte=price_to)
+
+        # print(cars, 'cars')
         queryset = []
+
         for car in cars:
-            print(car)
+            # print(car, 'car')
             image = Image.objects.filter(car=car).first()
             queryset.append([car, image])
 
@@ -63,18 +75,19 @@ class CarsView(TitleMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         queryset = self.get_queryset()
-        if queryset:
+        # print(queryset, 'context_data')
+        if len(queryset) >= 0:
             context['data'] = queryset
             return context
-        print('using this')
+        # print('using this, renault')
         data = []
         for car in Car.objects.all():
             image = Image.objects.filter(car=car).first()
             data.append([car, image])
-        form = FilterForm()
+        # form = FilterForm()
         # context = super().get_context_data(**kwargs)
         context['data'] = data
-        context['form'] = form
+        # context['form'] = form
 
         return context
 
@@ -106,7 +119,7 @@ class ArticleView(TitleMixin, TemplateView):
     def get_context_data(self, pk, **kwargs):
         car = Car.objects.get(pk=pk)
         username_id = car.username_id
-        print(username_id, 'username_id')
+        # print(username_id, 'username_id')
         images = Image.objects.filter(car=car)
         context = super().get_context_data(**kwargs)
         context['car'] = car

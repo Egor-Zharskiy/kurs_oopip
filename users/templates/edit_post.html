@@ -42,9 +42,7 @@
                     <label>Загруженные Фотографии:</label>
                     {% for image in form.instance.image_set.all %}
                         <div class="image-container">
-                            {#                            <div class="image-frame">#}
                             <img src="{{ image.images.url }}" alt="Car Photo" class="car-photo">
-                            {#                            </div>#}
                             <div class="delete-button">
                                 <a href="{% url 'users:delete_photo' image.id %}">Удалить</a>
                             </div>

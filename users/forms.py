@@ -61,7 +61,7 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserProfileForm(UserChangeForm):
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4', 'readonly': True}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
     image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'custom-file-input'}), required=False)
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4', 'readonly': True}))
@@ -97,8 +97,12 @@ class CarForm(forms.ModelForm):
 
 
 class CarEditForm(forms.ModelForm):
-    # images = forms.FileField(widget=forms.FileInput(attrs={'multiple': True}), required=False)
-
     class Meta:
         model = Car
         fields = ['mileage', 'color', 'price', 'description']
+
+
+class UserProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', 'phone_number']

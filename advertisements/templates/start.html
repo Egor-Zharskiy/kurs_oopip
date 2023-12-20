@@ -33,7 +33,6 @@
                     <label for="generations">Поколение:</label>
                     <select id="generations" name="generations">
                         <option value="">Выберите поколение</option>
-                        <!-- Ваши опции для выбора поколения -->
                     </select>
                 </div>
 
@@ -45,6 +44,16 @@
                 <div class="start-adv-field">
                     <label for="mileage">Пробег (в км):</label>
                     <input type="number" id="mileage" name="mileage">
+                </div>
+
+                <div class="start-adv-field">
+                    <label for="price_to">Цена от:</label>
+                    <input type="number" id="price_from" name="price_from">
+                </div>
+
+                <div class="start-adv-field">
+                    <label for="price_to">Цена до:</label>
+                    <input type="number" id="price_to" name="price_to">
                 </div>
 
                 <div class="start-adv-field submit-field">
@@ -143,26 +152,28 @@
                 });
             });
         });
+
+        $(document).ready(function () {
+            $('form.sidebar-form').submit(function (event) {
+                var releaseYear = parseInt($('#release_year').val()) || 0;
+                var minPrice = parseInt($('#price_from').val()) || null;
+                var maxPrice = parseInt($('#price_to').val()) || null;
+                console.log(minPrice, 'minPrice');
+                console.log(maxPrice, 'maxPrice');
+
+                if (releaseYear >= 2023) {
+                    event.preventDefault();
+
+                    alert('Год выпуска не может быть больше либо равен 2023');
+                }
+                if (minPrice && maxPrice && minPrice > maxPrice) {
+                    event.preventDefault();
+
+                    alert('Минимальная цена не может быть больше максимальной');
+                }
+            });
+        });
+
     </script>
-    {#    <script>#}
-    {#        document.addEventListener('DOMContentLoaded', function () {#}
-    {#            const brandSelect = document.getElementById('brand');#}
-    {##}
-    {#            const xhr = new XMLHttpRequest();#}
-    {#            xhr.open('GET', '/get_car_brands/', true);#}
-    {#            xhr.onreadystatechange = function () {#}
-    {#                if (xhr.readyState === 4 && xhr.status === 200) {#}
-    {#                    const data = JSON.parse(xhr.responseText);#}
-    {#                    data.brands.forEach(brand => {#}
-    {#                        let option = document.createElement('option');#}
-    {#                        option.value = brand.id;#}
-    {#                        option.text = brand.name;#}
-    {#                        brandSelect.appendChild(option);#}
-    {#                    });#}
-    {#                }#}
-    {#            };#}
-    {#            xhr.send();#}
-    {#        });#}
-    {#    </script>#}
 
 {% endblock %}

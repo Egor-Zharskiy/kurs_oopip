@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
@@ -8,11 +9,12 @@ from django.urls import reverse, reverse_lazy
 from django.contrib import auth
 from django.views import View
 from django.views.generic import UpdateView, DeleteView, TemplateView, DetailView
+from django.views.generic.edit import CreateView
 
 from advertisements.models import Car, Image, CarBrand, CarModel, CarGeneration
 from common.views import TitleMixin
 from users.forms import UserRegistrationForm, UserLoginForm, UserProfileForm, PostCreationForm, ImageCreationForm, \
-    CarForm, CarEditForm
+    CarForm, CarEditForm, UserProfileEditForm
 from users.models import User
 
 from django.core import serializers
@@ -108,50 +110,23 @@ class Registration(TitleMixin, View):
         return render(request, self.template_name, {'form': form})
 
 
-def profile(request, pk):
-    context = {}
-    if not pk:
-        form = UserProfileForm(instance=request.user)
-        advertisements = Car.objects.filter(username=request.user)
-        context['user_id'] = request.user.id
-        print(request.user.id, 'request.user.id')
-    else:
-        print(request.user.id, 'else')
-        form = UserProfileForm(instance=User.objects.get(pk=pk))
-        advertisements = Car.objects.filter(username=User.objects.get(pk=pk))
-    context['form'] = form
-
-    owner_id = advertisements.first().username.id if advertisements else 0
-    # проверить, не пусто ли количество объявлений продавца
-    # owner_id = advertisements.first().username.id
-    print(owner_id, 'owner_id')
-
-    context['advertisements'] = advertisements
-    context['user_id'] = owner_id
-    print(owner_id)
-
-    return render(request, 'profile.html', context=context)
-
-
 class ProfileView(View):
     template_name = 'profile.html'
     model = User
 
-    # template_name = 'profile.html'
-
     def get(self, request, pk=None):
-        # Если pk не передан, используем id текущего пользователя
+        print(request.path)
         if not pk:
             pk = request.user.id
+        print(pk, self.request.user.id)
 
         user = get_object_or_404(User, pk=pk)
         form = UserProfileForm(instance=user)
         advertisements = Car.objects.filter(username=user)
         owner_id = advertisements.first().username.id if advertisements else 0
 
-        # Проверяем, является ли текущий пользователь тем, чей профиль просматривается
-        is_owner = request.user.id == owner_id
-
+        # is_owner = request.user.id == owner_id
+        is_owner = self.request.user.id == pk
         context = {
             'form': form,
             'advertisements': advertisements,
@@ -191,50 +166,45 @@ def get_generations(request):
         return JsonResponse({'generations': data})
 
 
-def demo_post(request):
-    print(request.POST)
-    if request.method == "POST":
-        car = Car.objects.create(username=request.user, brand=CarBrand.objects.get(id=request.POST['brand']),
-                                 model=CarModel.objects.get(id=request.POST['model']),
-                                 generation=CarGeneration.objects.get(id=request.POST['generations']),
-                                 release_year=request.POST['release_year'], mileage=request.POST['mileage'],
-                                 color=request.POST['mileage'], description=request.POST['description'],
-                                 price=request.POST['price'])
-        car.save()
+class CreateCarView(CreateView):
+    model = Car
+    form_class = CarEditForm
+    template_name = 'create_post.html'
+    success_url = '/advertisements/cars/'
 
-        for f in request.FILES.getlist('photos'):
-            print(f)
-            data = f.read()
-            image = Image.objects.create(car=car, images=f)
+    def get(self, request, *args, **kwargs):
+        return render(request, 'create_post.html', context={})
+
+    def post(self, request, *args, **kwargs):
+        print(self.request.POST, 'request')
+
+        # response = super().form_valid(form)
+
+        car = Car.objects.create(username=self.request.user, brand=CarBrand.objects.get(id=self.request.POST['brand']),
+                                 model=CarModel.objects.get(id=self.request.POST['model']),
+                                 generation=CarGeneration.objects.get(id=self.request.POST['generations']),
+                                 release_year=self.request.POST['release_year'], mileage=self.request.POST['mileage'],
+                                 color=self.request.POST['mileage'], description=self.request.POST['description'],
+                                 price=self.request.POST['price'])
+        car.save()
+        print(car, 'carcarcar')
+        multiple_images = self.request.FILES.getlist('photos')
+        print(multiple_images, 'multiple_images')
+        for img in multiple_images:
+            image = Image.objects.create(car=car, images=img)
             image.save()
+
         return redirect(reverse('advertisements:cars'))
 
-    print(request.FILES, 'files')
 
-    return render(request, 'create_post.html', context={})
-
-
-class GetModelsView(View):
-    def get(self, request, *args, **kwargs):
-        brand_id = self.request.GET.get('brand_id')
-        models = CarModel.objects.filter(brand_id=brand_id)
-        data = serializers.serialize('json', models)
-        return JsonResponse({'models': data}, safe=False)
-
-
-class GetGenerationsView(View):
-    def get(self, request, *args, **kwargs):
-        model_id = self.request.GET.get('model_id')
-        generations = CarGeneration.objects.filter(model_id=model_id)
-        data = serializers.serialize('json', generations)
-        return JsonResponse({'generations': data}, safe=False)
-
-
-class EditCarView(TitleMixin, UpdateView):
+class EditCarView(TitleMixin, UserPassesTestMixin, UpdateView):
     model = Car
     form_class = CarEditForm
     template_name = 'edit_post.html'
     title = "CarSell - Редактирование объявления"
+
+    def test_func(self):
+        return self.request.user == self.get_object().username
 
     def get_success_url(self):
         user_profile_url = reverse('users:profile', kwargs={'pk': self.request.user.id})
@@ -242,6 +212,9 @@ class EditCarView(TitleMixin, UpdateView):
         return user_profile_url
 
     def form_valid(self, form):
+        response = super().form_valid(form)
+
+        print('form form form')
         print(self.request.FILES, 'files')
         print(self.model.pk)
         for f in self.request.FILES.getlist('photos'):
@@ -250,9 +223,14 @@ class EditCarView(TitleMixin, UpdateView):
             image = Image.objects.create(car=self.object, images=f)
             image.save()
         return redirect(reverse('advertisements:cars'))
+        # return response
 
 
-class DeleteCarView(View):
+class DeleteCarView(UserPassesTestMixin, View):
+
+    def test_func(self):
+        car = get_object_or_404(Car, pk=self.kwargs['pk'])
+        return self.request.user == car.username
 
     def get(self, request, pk):
         car = get_object_or_404(Car, pk=pk)
@@ -260,6 +238,26 @@ class DeleteCarView(View):
         car.delete()
 
         return HttpResponseRedirect(reverse('users:profile', kwargs={'pk': request.user.id}))
+
+
+class UserProfileEditView(LoginRequiredMixin, UserPassesTestMixin, View):
+    template_name = 'edit_profile.html'
+
+    def test_func(self):
+        return self.request.user.id == self.kwargs.get('pk')
+
+    def get(self, request, *args, **kwargs):
+        print(self.kwargs.get('pk'), self.request.user.id)
+        form = UserProfileEditForm(instance=request.user)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = UserProfileEditForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('users:profile', kwargs={'pk': request.user.id}))
+
+        return render(request, self.template_name, {'form': form})
 
 
 def delete_photo(request, image_id):
