@@ -76,9 +76,13 @@
             <div class="car-info">
                 <h2>{{ car.brand }} {{ car.model }} {{ car.generation }}</h2>
                 <p class="car-price">Цена: {{ car.price }} $</p>
-                <p class="car-price">Пробег: {{ car.mileage }} км</p>
+
                 <h3>Описание: </h3>
+
                 <p class="car-description">
+                    Цвет: {{ car.color }};
+                    Пробег: {{ car.mileage }} км;
+                    {{ car.release_year }} год;
                     {{ car.description }}
                 </p>
                 <h3>Дата публикации: {{ car.created_timestamp }}</h3>

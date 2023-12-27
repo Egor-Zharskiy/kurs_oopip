@@ -91,26 +91,6 @@ class CarsView(TitleMixin, ListView):
 
         return context
 
-    # def post(self, request, **kwargs):
-    #     if request.method == "POST":
-    #         form = FilterForm(request.POST)
-    #         if form.is_valid():
-    #             queryset = self.get_queryset()
-    #             print(queryset)
-    #
-    #             print(queryset, 'queryset')
-    #             context = {
-    #                 'data': queryset,
-    #                 'form': FilterForm(),
-    #             }
-    #         else:
-    #             queryset = self.get_queryset()
-    #             context = {
-    #                 'data': queryset,
-    #                 'form': FilterForm(),
-    #             }
-    #         return render(request, 'index.html', context)
-
 
 class ArticleView(TitleMixin, TemplateView):
     template_name = 'article.html'

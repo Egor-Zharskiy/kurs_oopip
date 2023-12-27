@@ -13,7 +13,3 @@ admin.site.register(CarGeneration)
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
     list_display = ('brand', 'username', 'price', 'created_timestamp')
-    # fields = ('name', 'description', ('price', 'quantity'), 'image', 'category')
-    # readonly_fields = ('description',)
-    # search_fields = ('name',)
-    # ordering = ('-name',)
